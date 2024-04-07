@@ -1,4 +1,4 @@
-# 9 - Canary Deployment Strategy
+```````# 9 - Canary Deployment Strategy
 
 Canary deployments are based on the routing of user traffic such that you can compare, test, and observe the behavior of any update for a small percentage of users. They are an important roll-out strategy in Kubernetes, especially when tweaks, updates, or entirely new deployments need to be tested. A canary deployment is an improved iteration of an existing deployment that includes all the necessary dependencies and application code. It exists alongside the original deployment and allows you to compare the behavior of different versions of your application side by side. It helps you test new features on a small percentage of users with minimal downtime and less impact on user experience.
 
