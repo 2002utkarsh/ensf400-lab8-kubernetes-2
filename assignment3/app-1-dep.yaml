@@ -1,22 +1,29 @@
+# Definition of a Deployment for app-1
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-# Name of the deployment
   name: app-1-deployment
 spec:
+  # Selector for identifying pods belonging to this deployment
   selector:
     matchLabels:
       app: app-1
+  # Number of desired replicas
   replicas: 1
   template:
     metadata:
+      # Labels applied to pods created by this template
       labels:
         app: app-1
     spec:
+      # Container specifications
       containers:
       - name: app-1
-       # new image 
+        # Docker image to run within the container
         image: ghcr.io/denoslab/ensf400-sample-app:v1
+        # Policy for pulling the image
         imagePullPolicy: Always
+        # Ports to expose within the container
         ports:
         - containerPort: 3000

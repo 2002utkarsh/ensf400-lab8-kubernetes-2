@@ -1,12 +1,16 @@
+# Definition of a Service for app-1
+
 apiVersion: v1
 kind: Service
 metadata:
   name: app-1-service
 spec:
+  # Selector to match pods with the app-1 label
   selector:
     app: app-1
+  # Ports that the service will expose
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
-
+    # Definition of the port mapping
+    - protocol: TCP # Protocol used for the port (TCP in this case)
+      port: 80 # Port on which the service will be exposed
+      targetPort: 3000 # Port on pods to which traffic will be forwarded

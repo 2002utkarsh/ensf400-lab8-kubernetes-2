@@ -1,15 +1,24 @@
+# Definition of an Ingress for app-1
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app-1-ingress
+  labels: # Dummy label for visualization
+    dummy: "dummy"
 spec:
+  # Rules section defines routing rules for incoming requests
   rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: app-1-service
-            port:
-              number: 3000
+    # HTTP rule for incoming traffic
+    - http:
+        # Paths section specifies URL paths and their corresponding backends
+        paths:
+          # Dummy comment to illustrate each path
+          - pathType: Prefix # Type of path matching
+            path: "/" # Dummy path for the root
+            # Backend service for handling requests
+            backend:
+              service:
+                name: app-1-service
+                port:
+                  number: 3000

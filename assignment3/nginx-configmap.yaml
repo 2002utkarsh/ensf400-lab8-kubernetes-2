@@ -1,3 +1,5 @@
+# Definition of a ConfigMap for nginx configuration
+
 apiVersion: v1
 kind: ConfigMap
 metadata:

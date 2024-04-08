@@ -1,16 +1,23 @@
+# Definition of an Ingress for nginx
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-ingress
 spec:
+  # Routing rules for incoming requests
   rules:
-  - host: minikube.local
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: nginx-svc
-            port:
-              number: 80
+    # Host-based routing rule
+    - host: minikube.local
+      http:
+        # HTTP routing
+        paths:
+          # Path-based routing rule
+          - pathType: Prefix
+            path: "/"
+            # Backend service for handling requests
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80

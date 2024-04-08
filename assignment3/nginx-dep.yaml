@@ -1,26 +1,40 @@
+# Definition of a Deployment for nginx
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-dep
 spec:
+  # Number of desired replicas
   replicas: 5
+  # Selector for identifying pods belonging to this deployment
   selector:
     matchLabels:
       app: nginx
+  # Pod template for creating pods
   template:
     metadata:
+      # Labels applied to pods created by this template
       labels:
         app: nginx
     spec:
+      # Containers running in the pod
       containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: nginx-config
-          mountPath: /etc/nginx/conf.d
+        # Container details
+        - name: nginx
+          # Docker image for the container
+          image: nginx:1.14.2
+          # Ports exposed by the container
+          ports:
+            # Port mapping
+            - containerPort: 80
+          # Volume mounts for attaching volumes to containers
+          volumeMounts:
+            # Mounting nginx-config volume to /etc/nginx/conf.d directory
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+      # Volumes to be attached to pods
       volumes:
-      - name: nginx-config
-        configMap:
-          name: nginx-configmap
+        # Configuration map volume named nginx-config
+        - name: nginx-config
+     

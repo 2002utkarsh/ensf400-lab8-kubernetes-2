@@ -1,12 +1,18 @@
+# Definition of a Service for nginx
+
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-svc
 spec:
+  # Selector to match pods with the app: nginx label
   selector:
     app: nginx
+  # Ports that the service will expose
   ports:
+    # Port mapping
     - protocol: TCP
       port: 80
       targetPort: 80
+  # Type of service - ClusterIP
   type: ClusterIP

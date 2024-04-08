@@ -1,20 +1,33 @@
+# Definition of a Deployment for app-2
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-2-deployment
 spec:
+  # Selector for identifying pods belonging to this deployment
   selector:
     matchLabels:
       app: app-2
+  # Number of desired replicas
   replicas: 1
+  # Template for creating pods
   template:
     metadata:
+      # Labels applied to pods created by this template
       labels:
         app: app-2
+    # Pod specification
     spec:
+      # Containers running in the pod
       containers:
-      - name: app-2
-        image: ghcr.io/denoslab/ensf400-sample-app:v2
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3000
+        # Container details
+        - name: app-2
+          # Docker image for the container
+          image: ghcr.io/denoslab/ensf400-sample-app:v2
+          # Policy for pulling the image
+          imagePullPolicy: Always
+          # Ports exposed by the container
+          ports:
+            # Port mapping
+            - containerPort: 3000
